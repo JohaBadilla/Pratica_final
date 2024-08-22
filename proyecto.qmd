@@ -1,0 +1,55 @@
+---
+title: "Practica Final Johanna UBadilla"
+author: "Nayib Vargas"
+"Link github: https://github.com/JohaBadilla/Pratica_final.git"
+format: 
+  html:
+    code-fold: true
+    theme: cosmo
+  pdf: default
+---
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = pd.read_csv("./proyecto_final_nayib.csv")
+
+```
+
+
+## Visualización de datos en Seaborn
+
+
+```{python}
+plt.figure(figsize=(10, 6))
+sns.histplot(data=data, x='Año', kde=True)
+plt.title('Distribución de los Años de los Equipos')
+plt.savefig('grafico_distribucion.png')
+plt.show()
+```
+
+
+```{python}
+# Gráfico relacional - Relación entre victorias y derrotas
+plt.figure(figsize=(10, 6))
+# Hacemos un gráfico de dispersión para ver si hay alguna relación entre las victorias y derrotas de los equipos
+sns.scatterplot(data=data, x='Victorias', y='Derrotas', hue='Nombre')
+plt.title('Relación entre Victorias y Derrotas por Equipo')
+# Guardamos el gráfico como una imagen
+plt.savefig('grafico_relacional.png')
+# Mostramos el gráfico en la pantalla
+plt.show()
+```
+
+```{python}
+# Gráfico de distribución - Distribución de los años de los equipos
+plt.figure(figsize=(10, 6))
+# Hacemos un gráfico de histograma para ver en qué años jugaron más equipos
+sns.histplot(data=data, x='Año', kde=True)
+plt.title('Distribución de los Años de los Equipos')
+# Guardamos el gráfico como una imagen
+plt.savefig('grafico_distribucion.png')
+# Mostramos el gráfico en la pantalla
+plt.show()
+```
